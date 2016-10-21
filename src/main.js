@@ -1,15 +1,25 @@
 // src/main.jsx
-import React from 'react';
-import { render } from 'react-dom';
+import React           from 'react';
+import { render }      from 'react-dom';
 
-import Hello from './components/hello.js';
-import World from './components/world.js';
-import Counter from './components/counter.js';
+// redux
+import { createStore } from 'redux'
+import { Provider }    from 'react-redux'
+
+// import Counter from './components/counter.js';
+import App from './container/app'
+import { counterReducer } from './reducer.js';
+
+
+
+//createStore() メソッドでアプリケーションのStateを保存する Store を生成する。
+let applicationStore = createStore(counterReducer);
+//console.log("applicationStore", applicationStore);
 
 render(
-    <div>
-      <Counter count="100" />
-    </div>,
+    <Provider store={applicationStore}>
+      <App />
+    </Provider>,
     document.getElementById('app')
 );
 
