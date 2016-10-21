@@ -2,10 +2,20 @@
 var path = require('path');
 var webpack = require('webpack');
 
-
 module.exports = {
   entry: './src/main.js',
-  output: { path: path.join(__dirname, 'public/scripts'), filename: 'app.bundle.js' },
+  output: {
+    path: path.join(__dirname, 'public/scripts'),
+    publicPath: "/scripts/",
+    filename: 'app.bundle.js'
+  },
+
+  devServer: {
+    inline: true,
+    hot: true,
+    contentBase: path.join(__dirname, 'public/')
+  },
+
   module: {
     loaders: [
       {
