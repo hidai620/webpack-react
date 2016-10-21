@@ -12,8 +12,8 @@ module.exports = {
 
   devServer: {
     inline: true,
-    hot: true,
-    contentBase: path.join(__dirname, 'public/')
+    contentBase: path.join(__dirname, 'public/'),
+    stats: { colors: true }
   },
 
   module: {
