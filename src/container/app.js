@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 
-import { up } from '../actions'
+import { up, down } from '../actions'
 
 import Counter from '../components/counter'
 
@@ -11,7 +11,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    handleClickUp: () => { dispatch(up(1)) }
+    handleClickUp: () => { dispatch(up(1)) },
+    handleClickDown: () => { dispatch(down(1)) }
   }
 }
 

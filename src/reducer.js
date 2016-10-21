@@ -10,16 +10,17 @@ let initialState = {
 export let counterReducer = (state = initialState, action) => {
   switch (action.type) {
     case UP:
-      console.log("countReducer > UP", action);
-      //ADD_TEXTアクションが来た時は現状の state にAction Creatorから returnされたデータを元に新規オブジェクトを作成、state にプラスして新しい state を返す
+      console.log("countReducer > UP", state);
       let ret = {
         count: state.count + action.stepBy
       };
-      console.log("countReducer > UP return:", ret);
+      //console.log("countReducer > UP return:", ret);
       return ret;
-    //case DOWN:
-    //  // CLEAT_TEXTアクションが来た場合には空の配列を返して state を初期化する
-    //  return []
+    case DOWN:
+      console.log("countReducer > DOWN", state);
+      return {
+        count: state.count - action.stepBy
+      };
     default:
       return state
   }
