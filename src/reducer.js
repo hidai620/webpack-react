@@ -11,11 +11,9 @@ export let counterReducer = (state = initialState, action) => {
   switch (action.type) {
     case UP:
       console.log("countReducer > UP", state);
-      let ret = {
+      return {
         count: state.count + action.stepBy
       };
-      //console.log("countReducer > UP return:", ret);
-      return ret;
     case DOWN:
       console.log("countReducer > DOWN", state);
       return {
@@ -24,6 +22,6 @@ export let counterReducer = (state = initialState, action) => {
     default:
       return state
   }
-}
+};
 
 

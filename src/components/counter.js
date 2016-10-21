@@ -10,16 +10,6 @@ import { up, down } from '../actions'
 
 
 class Counter extends React.Component {
-  constructor(props) {
-    super(props);
-    console.log(this.props);
-
-    this.state = {count: parseInt(this.props.count)};
-
-    // がっかり感半端ない
-    // this.up   = this.up.bind(this);
-    // this.down = this.down.bind(this);
-  }
 
   render() {
     return (
@@ -30,23 +20,16 @@ class Counter extends React.Component {
       </div>
     );
   }
-
-  //up(e) {
-  //  console.log("up", this.props);
-  //  this.props.dispatch(up(1))
-  //}
-  //
-  //down(e) {
-  //  this.props.dispatch(down(1))
-  //}
 }
 
-// セレクターの定義: Appコンポーネントが必要とするデータを グローバルなstate 全体の中から取捨選択して取得する。今回は state 全体をそのままreturnしている
+// セレクターの定義: Counterコンポーネントが必要とするデータを グローバルなstate
+// 全体の中から取捨選択して取得する。今回は state 全体をそのままreturnしている
 const selector = (state) => {
   return {
     state: state // Key名とvalue名が同じなので return {state} でも可: Object Literal Shorthand
   }
 };
+
 
 export default connect(selector)(Counter)
 
